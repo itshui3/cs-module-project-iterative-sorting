@@ -12,16 +12,27 @@ def selection_sort(arr):
                 smallest_index = l
         # TO-DO: swap
         # Your code here
-        cur_val = arr[cur_index]
-        smallest_val = arr[smallest_index]
-        arr[cur_index] = smallest_val
-        arr[smallest_index] = cur_val
+        arr[cur_index], arr[smallest_index] = arr[smallest_index], arr[cur_index]
+
     return arr
 
 
+
+# 1. Loop through your array
+#     - Compare each element to its neighbor
+#     - If elements in wrong position (relative to each other, swap them)
+# 2. If no swaps performed, stop. Else, go back to the element at index 0 and repeat step 1.
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    sort_count = 1
+    while sort_count > 0:
+        sort_count = 0
+        for i in range(len(arr) - 1):
+            if arr[i] > arr[i+1]:
+                # perform swap
+                sort_count += 1
+                arr[i], arr[i+1] = arr[i+1], arr[i]
 
 
     return arr
