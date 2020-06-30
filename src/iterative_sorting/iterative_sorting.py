@@ -56,6 +56,35 @@ What is the time and space complexity of the counting sort algorithm?
 '''
 def counting_sort(arr, maximum=None):
     # Your code here
+    if len(arr):
+        maximum = arr[0]
+    else:
+        return []
 
+    for i in arr:
+        if i > maximum:
+            maximum = i
+        if i < 0:
+            return "Error, negative numbers not allowed in Count Sort"
 
-    return arr
+    count = [0] * (maximum + 1)
+
+    for i in arr:
+        count[i] += 1
+
+    new_arr = []
+    for value, count in enumerate(count):
+        for i in range(count):
+            new_arr.append(value)
+
+    return new_arr
+
+# we build an aux array
+# wherein the indexex are the values we want sorted
+# and the values are the amount of duplicates
+
+# ie. [0, 0, 0, 2, 0, 1]
+# I have 0 - 0's, 0 - 1's, 0 - 2's, 2 - 3's, 0 - 4's, 1 - 5's
+
+# in an auxiliary array, indexes are already sorted. Therefore I can append the amount of times
+# indicated
