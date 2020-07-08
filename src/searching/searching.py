@@ -18,6 +18,20 @@ def re_linear_search(arr, target, cur=0):
 def binary_search(arr, target):
 
     # Your code here
+    l = 0
+    r = len(arr)-1
 
+    while r >= l:
+
+        middex = ((r - l) // 2) + l
+
+        if target == arr[middex]:
+            return middex
+        
+        elif target > arr[middex]:
+            l = middex + 1
+
+        elif target < arr[middex]:
+            r = middex - 1
 
     return -1  # not found
