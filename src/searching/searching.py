@@ -35,3 +35,23 @@ def binary_search(arr, target):
             r = middex - 1
 
     return -1  # not found
+
+# we perform an in place search so as to preserve the array's entirety for returning the target's index
+def re_binary_search(arr, target, l=0, r=0):
+    if not len(arr): return -1
+    
+    middex = (r - l) // 2 + l
+    if target == arr[middex]: return middex
+
+    elif target > arr[middex]:
+        l=middex + 1
+        if l <= r:
+            return re_binary_search(arr, target, l=l, r=r)
+        else:
+            return -1
+    elif target < arr[middex]:
+        r=middex - 1
+        if l <= r:
+            return re_binary_search(arr, target, l=l, r=r)
+        else:
+            return -1
