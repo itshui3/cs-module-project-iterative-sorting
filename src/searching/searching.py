@@ -9,7 +9,9 @@ def linear_search(arr, target):
 def re_linear_search(arr, target, cur=0):
     if cur == len(arr): return -1
 
-    
+    if target == arr[cur]: return cur
+
+    return re_linear_search(arr, target, cur+1)
 
 
 # Write an iterative implementation of Binary Search
