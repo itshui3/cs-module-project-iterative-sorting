@@ -35,3 +35,6 @@ def binary_search(arr, target):
             r = middex - 1
 
     return -1  # not found
+
+def re_binary_search(arr, target):
+    pass
