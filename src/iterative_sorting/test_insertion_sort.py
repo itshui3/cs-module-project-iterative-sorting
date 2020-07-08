@@ -18,5 +18,10 @@ class InsertionSortTest(unittest.TestCase):
         self.assertEqual(insertion_sort(unsorted4), sorted(unsorted4))
 
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
+
+# seems like if I manually call the unittest module I need to be
+# within same dir
+# whereas if I use unittest.main() within the test_file
+# I can run it wherever

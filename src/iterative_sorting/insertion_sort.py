@@ -19,6 +19,8 @@ def insertion_sort(arr):
                 curdex -= 1
     return arr
 
-unsorted = [0, 5, 2, 3, 1, 8, 9, 2, 1, 3]
+# unsorted = [0, 5, 2, 3, 1, 8, 9, 2, 1, 3]
 
-print(insertion_sort(unsorted))
+# print(insertion_sort(unsorted))
+
+# print(__name__)
