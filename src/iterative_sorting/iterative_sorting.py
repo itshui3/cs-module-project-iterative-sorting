@@ -92,3 +92,51 @@ def counting_sort(arr, maximum=None):
 
 # in an auxiliary array, indexes are already sorted. Therefore I can append the amount of times
 # indicated
+
+def abs_counting_sort(arr):
+    if not len(arr): return []
+    if len(arr) == 1: return arr
+
+    minimum = arr[0]
+    maximum = arr[0]
+    for i in arr:
+        if i < minimum: minimum = -1 * i
+        if i > maximum: maximum = i
+    
+    pos_arr = [0] * (maximum + 1)
+    neg_arr = [0] * (minimum + 1)
+
+    for i in arr:
+        if i >= 0: pos_arr[i] += 1
+        if i < 0: neg_arr[-1 * i] += 1
+
+    sorted_arr = []
+    for i in range(len(neg_arr)-1, 0, -1):
+        if neg_arr[i] > 0:
+            sorted_arr += [-1 * i] * neg_arr[i]
+
+
+    for i, e in enumerate(pos_arr):
+        if e > 0:
+            sorted_arr += [i] * e
+    
+    return sorted_arr
+
+            
+# will I have to worry about having 0 in both arrays?
+# I can partially account for this
+# by stopping the backwards for-loop prematurely
+# at index 0, thereby preventing clearing of array by 1
+# missing the 0
+
+
+arr3 = [1, 5, -2, 4, 3, -7, -20]
+
+sorted_3 = abs_counting_sort(arr3)
+print(arr3)
+print(sorted_3)
+
+# neg array needs to be in descending order
+# then depending on the looping direction and order
+# append will populate sorted_arr by angling loops as needed
+# on the positive and negative count arrays
